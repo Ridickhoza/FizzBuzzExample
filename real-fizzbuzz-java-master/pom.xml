@@ -32,7 +32,7 @@
     </dependency>
   </dependencies>
   
-  <repositories>
+ <!--  <repositories>
   <repository>
   <id>myMavenRepo.read</id>
   <url>https://mymavenrepo.com/repo/C6ofrFozOMLlbWicNV6g/</url>
@@ -41,11 +41,12 @@
   
   <distributionManagement>
   <repository>
-  <id>myMavenRepo.crud</id>
+  <id>myMavenRepo.write</id>
   <url>https://mymavenrepo.com/repo/C1ohHd6oe9toXYGGvHkT/</url>
   </repository>
   
   </distributionManagement>
+  -->
 
   <build>
     <plugins>
