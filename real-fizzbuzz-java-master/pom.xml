@@ -31,6 +31,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <repositories>
+  <repository>
+  <id>myMavenRepo.read</id>
+  <url>https://mymavenrepo.com/repo/C6ofrFozOMLlbWicNV6g/</url>
+  </repository>
+  </repositories>
+  
+  <distributionManagement>
+  <repository>
+  <id>myMavenRepo.write</id>
+  <url>https://mymavenrepo.com/repo/C1ohHd6oe9toXYGGvHkT/</url>
+  </repository>
+  
+  </distributionManagement>
 
   <build>
     <plugins>
