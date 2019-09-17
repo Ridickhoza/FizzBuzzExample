@@ -41,7 +41,7 @@
   
   <distributionManagement>
   <repository>
-  <id>myMavenRepo.write</id>
+  <id>myMavenRepo.crud</id>
   <url>https://mymavenrepo.com/repo/C1ohHd6oe9toXYGGvHkT/</url>
   </repository>
   
