@@ -35,7 +35,7 @@
     </dependency>
   </dependencies>
   
- <!--  <repositories>
+   <repositories>
   <repository>
   <id>myMavenRepo.read</id>
   <url>https://mymavenrepo.com/repo/C6ofrFozOMLlbWicNV6g/</url>
@@ -49,7 +49,7 @@
   </repository>
   
   </distributionManagement>
-  -->
+ 
 
   <build>
     <plugins>
