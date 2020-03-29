@@ -1,6 +1,7 @@
 package com.fizzbuzz;
 
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
@@ -10,59 +11,70 @@ import java.util.stream.IntStream;
 import static com.fizzbuzz.FizzBuzz.fizzBuzz;
 import static com.fizzbuzz.FizzBuzz.frequencies;
 import static com.fizzbuzz.FizzBuzz.realFizzBuzz;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FizzBuzzTest {
 
     private static final String EXPECTED_OUTPUT = "1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky 14 fizzbuzz 16 17 fizz 19 buzz";
 
     @Test
-    public void multiplesOf3_shouldReturnFizz() {
-        assertThat(fizzBuzz(9), is("fizz"));
-        assertThat(fizzBuzz(12), is("fizz"));
-        assertThat(fizzBuzz(18), is("fizz"));
-        assertThat(fizzBuzz(21), is("fizz"));
+    @DisplayName("when testing fizz")
+    public void fizzTest() {
+        assertAll("multiples Of 3 should Return ->Fizz",
+                ()->assertEquals("fizz",fizzBuzz.apply(9)),
+                ()->assertEquals("fizz",fizzBuzz.apply(12)),
+                ()->assertEquals("fizz",fizzBuzz.apply(18)),
+                ()->assertEquals("fizz",fizzBuzz.apply(21)));
     }
 
     @Test
-    public void multiplesOf5_shouldReturnBuzz() {
-        assertThat(fizzBuzz(5), is("buzz"));
-        assertThat(fizzBuzz(10), is("buzz"));
-        assertThat(fizzBuzz(20), is("buzz"));
-        assertThat(fizzBuzz(25), is("buzz"));
+    @DisplayName("when testing buzz")
+    public void buzzTest() {
+        assertAll("multiples Of 5 should Return ->buzz",
+                ()->assertEquals("buzz",fizzBuzz.apply(5)),
+                ()->assertEquals("buzz",fizzBuzz.apply(10)),
+                ()->assertEquals("buzz",fizzBuzz.apply(20)),
+                ()->assertEquals("buzz",fizzBuzz.apply(25)));
     }
 
     @Test
-    public void multiplesOf15_shouldReturnFizzbuzz() {
-        assertThat(fizzBuzz(15), is("fizzbuzz"));
-        assertThat(fizzBuzz(45), is("fizzbuzz"));
-        assertThat(fizzBuzz(60), is("fizzbuzz"));
-        assertThat(fizzBuzz(75), is("fizzbuzz"));
+    @DisplayName("when testing fizzbuzz")
+    public void fizzBuzzTest() {
+        assertAll("multiples Of 15 should Return ->fizzbuzz",
+                ()->assertEquals("fizzbuzz",fizzBuzz.apply(15)),
+                ()->assertEquals("fizzbuzz",fizzBuzz.apply(45)),
+                ()->assertEquals("fizzbuzz",fizzBuzz.apply(60)),
+                ()->assertEquals("fizzbuzz",fizzBuzz.apply(75)));
     }
 
     @Test
-    public void numberWithDigit3_shouldReturnLucky() {
-        assertThat(fizzBuzz(3), is("lucky"));
-        assertThat(fizzBuzz(13), is("lucky"));
-        assertThat(fizzBuzz(23), is("lucky"));
-        assertThat(fizzBuzz(30), is("lucky"));
+    @DisplayName("when testing lucky")
+    public void luckyTest() {
+        assertAll("number with digit 3 should Return ->Lucky",
+                ()->assertEquals("lucky",fizzBuzz.apply(3)),
+                ()->assertEquals("lucky",fizzBuzz.apply(13)),
+                ()->assertEquals("lucky",fizzBuzz.apply(23)),
+                ()->assertEquals("lucky",fizzBuzz.apply(30)));
     }
 
     @Test
-    public void realFizzBuzzfrequencies_shouldBeSummedUp() {
+    @DisplayName("when testing frequensies")
+    public void realFizzBuzzfrequenciesTest() {
         Map<String, Long> freq = frequencies(EXPECTED_OUTPUT);
-        assertThat(freq.get("fizz"), is(4L));
-        assertThat(freq.get("buzz"), is(3L));
-        assertThat(freq.get("fizzbuzz"), is(1L));
-        assertThat(freq.get("lucky"), is(2L));
-        assertThat(freq.get("integer"), is(10L));
+        assertAll("realFizzBuzzfrequencies ->shouldBeSummedUp",
+                ()->assertEquals(4L,freq.get("fizz")),
+                ()->assertEquals(3L,freq.get("buzz")),
+                ()->assertEquals(1L,freq.get("fizzbuzz")),
+                ()->assertEquals(2L,freq.get("lucky")),
+                ()->assertEquals(10L,freq.get("integer")));
     }
 
     @Test
-    public void realFizzBuzz_shouldReturnExpectedOutput() {
+    @DisplayName("when testing realFizz buzz")
+    public void realFizzBuzzTest() {
         List<Integer> list = IntStream.range(1,21).distinct().boxed().collect(Collectors.toList());
-        assertThat(realFizzBuzz(list), is(EXPECTED_OUTPUT));
+        assertEquals(EXPECTED_OUTPUT, realFizzBuzz(list));
     }
 
 }
