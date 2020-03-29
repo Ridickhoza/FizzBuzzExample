@@ -1,16 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>com.fizzbuzz</groupId>
   <artifactId>jenkins-example</artifactId>
-<version>0.0.1-SNAPSHOT</version>
-<packaging>jar</packaging>
-  
-  
-  <name>real-fizzbuzz</name>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
+
+  <name>real-fizzbuzz</name>
   <properties>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <junit.jupiter.version>5.4.0</junit.jupiter.version>
     <mainClass>com.fizzbuzz.App</mainClass>
   </properties>
 
@@ -28,28 +30,34 @@
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
-   <repositories>
-  <repository>
-  <id>myMavenRepo.read</id>
-  <url>https://mymavenrepo.com/repo/C6ofrFozOMLlbWicNV6g/</url>
-  </repository>
+
+  <repositories>
+    <repository>
+      <id>myMavenRepo.read</id>
+      <url>https://mymavenrepo.com/repo/C6ofrFozOMLlbWicNV6g/</url>
+    </repository>
   </repositories>
-  
+
   <distributionManagement>
-  <repository>
-  <id>myMavenRepo.write</id>
-  <url>https://mymavenrepo.com/repo/C1ohHd6oe9toXYGGvHkT/</url>
-  </repository>
-  
+    <repository>
+      <id>myMavenRepo.write</id>
+      <url>https://mymavenrepo.com/repo/C1ohHd6oe9toXYGGvHkT/</url>
+    </repository>
+
   </distributionManagement>
- 
 
   <build>
     <plugins>
@@ -57,8 +65,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
       </plugin>
       <plugin>
